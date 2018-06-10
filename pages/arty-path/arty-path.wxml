@@ -1,0 +1,161 @@
+<!--pages/arty-path/arty-path.wxml-->
+<view class='arty_path'>
+  <swiper class='swipper' indicator-dots="true" autoplay='true' interval='2500' duration='800'>
+    <block wx:for="{{loopImageUrls}}" wx:key="{{item.name}}">
+      <swiper-item>
+        <image class='slide-image' src='{{item.url}}' data-spot='{{item.name}}' bindtap='navToSpot'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='content'>
+    <view class='time_line'></view>
+    <view class='summary_content'>
+      <view class='intro'>
+      <!-- 文本内容，设置decode为true会识别回车换行 -->
+        <text class='type_title intro_title'>引言</text> 
+        <text decode="true" class='intro_content'>春天来了，<text class='text_delete'>又到了交配的季节</text>（大误），又到了旅游的季节。每年这个时候，洛阳这座城市就会调整为接客模式（好像有什么不对劲）。来自全国四地的客人来了，走了，有人玩的很开心，也有人玩的很窝心。总而言之，旅行对于大多数人来说总是一个探索未知的过程，所以这个过程是还算得上是有些许风险的事情。本文的主要目的还是在于梳理我和几个洛阳朋友的经验。当然，网上当然有更好的游记，以下所有内容仅仅是一些建议，客官您看看即可.</text>
+      </view>
+      <view class='summary_content_type'>
+        <text class='type_title'>出行必备：</text>
+        <view class='item_list'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title'>百度地图</text>
+              <text class='sub_title'>李彦宏没有给我广告费</text>
+            </view>
+            <view class='item_image_wrapper' hidden>
+              <image src='http://olzo3tk5t.bkt.clouddn.com/C_94.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view  class='summary_content_type'>
+        <text class='type_title'>时间选择：</text>
+        <view class='item_list'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title'>首选非周末时间</text>
+              <text class='sub_title'>五一十一的时候不要来，需要注意博物馆类景点大多周一闭馆。</text>
+            </view>
+            <view class='item_image_wrapper' hidden>
+              <image src='http://olzo3tk5t.bkt.clouddn.com/C_94.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view  class='summary_content_type attraction_recommend'>
+        <text class='type_title'>景点篇：</text>
+        <split id="recommend" title="市区内景点重点推荐"></split>
+        <!-- <text class='text_sub_title'>市区内景点重点推荐：</text> -->
+        <!-- <view class='text_list'>
+          <text class='text_link spot_link' data-spot='longmen_grottoes' bindtap='navToSpot'>**龙门石窟（废话）</text>
+          <text class='text_link spot_link' data-spot='white_horse_temple' bindtap='navToSpot'>**白马寺（废话*2）</text>
+          <text class='text_link spot_link' data-spot='luoyang_museum' bindtap='navToSpot'>**洛阳博物馆（河博闭关，我是老大）</text>
+          <text class='text_link'>**隋唐城遗址植物园（3月来看梅花，4月来看牡丹,和洛博是邻居）</text>
+          <text class='text_link spot_link' data-spot='guanlin' bindtap='navToSpot'>**关林（拜祭关二爷）</text>
+        </view> -->
+        <view class='item_list' wx:for="{{spots_data.recommend_attractions}}" wx:key="index" data-spot='{{item.name}}' bindtap='navToSpot'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title'>{{item.chs_name}}</text>
+              <text class='sub_title'>{{item.tips}}</text>
+            </view>
+            <view class='item_image_wrapper' wx:if="{{item.img_url}}">
+              <image src='{{item.img_url}}' mode='aspectFit'></image>
+            </view>
+          </view>
+        </view>
+        <split id="normal_recommend" title="市区内景点一般推荐"></split>
+        <!-- <text class='text_sub_title'>市区内景点一般推荐：</text> -->
+        <!-- <view class='text_list'> 
+          <text class='text_link spot_link' data-spot='emperor_carriage_museum' bindtap='navToSpot'>**天子驾六博物馆（主要是面积不大，但是历史价值高）</text>
+          <text class='text_link spot_link' data-spot='tumulus_museum' bindtap='navToSpot'>**洛阳古代艺术博物馆（其实就是古墓博物馆）</text>
+          <text class='text_link'>**国际牡丹园（和古墓博物馆斜对门,4月看牡丹，其余时间不用去）</text>
+          <text class='text_link spot_link' data-spot='crossing_street' bindtap='navToSpot'>**丽景门，老城十字街（人从众𠈌，和西安回民街差不多一回事）</text>
+        </view> -->
+        <view class='item_list' wx:for="{{spots_data.normal_recommend_attractions}}" wx:key="index" data-spot='{{item.name}}' bindtap='navToSpot'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title'>{{item.chs_name}}</text>
+              <text class='sub_title'>{{item.tips}}</text>
+            </view>
+            <view class='item_image_wrapper' wx:if="{{item.img_url}}">
+              <image src='{{item.img_url}}' mode='aspectFit'></image>
+            </view>
+          </view>
+        </view>
+        <split id="not_recommend" title="不推荐景点"></split>
+        <!-- <text class='text_sub_title'>不推荐景点： </text> -->
+        <!-- <view class='text_list'>
+          <text class='text_link'>**王城公园（人从众𠈌，没别的了）</text>
+          <text class='text_link'>**民俗博物馆</text>
+          <text class='text_link'>**定鼎门（除了考古的人别的人去看都是白瞎，考古的都去偃师了）</text>
+          <text class='text_link'>**洛八办（党员请提至首位）</text>
+          <text class='text_link'>**明堂,天堂</text>
+          <text class='text_link'>**洛邑古城</text>
+          <text class='text_link'>**薰衣草庄园</text>
+        </view>       -->
+        <view class='item_list' wx:for="{{spots_data.not_recommend_attractions}}" wx:key="index" data-spot='{{item.name}}' bindtap='navToSpot'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title'>{{item.chs_name}}</text>
+              <text class='sub_title'>{{item.tips}}</text>
+            </view>
+            <view class='item_image_wrapper' wx:if="{{item.img_url}}">
+              <image src='{{item.img_url}}' mode='aspectFit'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view  class='summary_content_type'>
+        <text class='type_title'>特色饮食篇：</text>
+        <!-- <view class='text_list'>
+          <text class='text_link spot_link' bindtap='to_map_location' data-latitude='34.671510' data-longitude='112.445870'>**小街锅贴（对外是风味楼小街锅贴飘香花城？黑人问号.jpg）</text>
+          <text class='text_link'>**老洛阳面馆（外地游客首推，门面众多，全是特色菜，吃3天不重样）</text>
+          <text class='text_link'>**牛、羊肉汤老店（是洛阳人主要早餐之一，各区都有几个老店，恕不一一罗列）</text>
+          <text class='text_link spot_link' bindtap='to_map_location' data-latitude='34.670150' data-longitude='112.448910'>**七一路油泼面（面食爱好者的大爱）</text>
+          <text class='text_link spot_link' bindtap='to_map_location' data-latitude='34.683370' data-longitude='112.477410'>**真不同饭店（人从众𠈌，百年老店，名气大，本地人不怎么去，参考北京全聚德）</text>
+        </view> -->
+        <view class='item_list' wx:for="{{spots_data.restaurants_recommend}}" wx:key="index" data-spot='{{item.name}}' bindtap='to_map_location' data-latitude='{{item.map_location.latitude}}' data-longitude='{{item.map_location.longitude}}'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title'>{{item.chs_name}}</text>
+              <text class='sub_title'>{{item.tips}}</text>
+            </view>
+            <view class='item_image_wrapper' wx:if="{{item.img_url}}">
+              <image src='{{item.img_url}}' mode='aspectFit'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view  class='summary_content_type'>
+        <text class='type_title'>交通篇：</text>
+        <view class='item_list'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title normal'>市区内各个景点基本上都是比较大的公交枢纽站，公交出行是很方便的，攻略规划也以公共交通为主。</text>
+              <text class='sub_title'></text>
+            </view>
+            <view class='item_image_wrapper' hidden>
+              <image src='http://olzo3tk5t.bkt.clouddn.com/C_94.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view  class='summary_content_type'>
+        <text class='type_title'>住宿篇：</text>
+        <view class='item_list'>
+          <view class='item'>
+            <view class='item_text'>
+              <text class='item_title normal'>每年4月初至5月中旬是牡丹花会期间，酒店住宿价格是平时住宿的2倍左右，总之就是贵贵贵贵贵贵贵，全城都是如此。如果有亲朋的话，亲朋解决最好,或者住青旅。本文不做住宿推荐，请朋友根据行程自行安排。</text>
+              <text class='sub_title'></text>
+            </view>
+            <view class='item_image_wrapper' hidden>
+              <image src='http://olzo3tk5t.bkt.clouddn.com/C_94.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,80 @@
+<!--pages/tourist_attractions/longmen/longmen.wxml-->
+<view class='attractions_wrapper'>
+  <view class='attraction_slider'>
+    <swiper class='swipper' indicator-dots="true" autoplay='true' interval='2500' duration='800' circular='true'>
+      <block wx:for="{{loopImageUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <image class='slide-image' src='{{item}}'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='attraction_main_info'>
+    <view class='info__detail'>
+      <view class='info__detail_item'>
+        <text class='iconfont icon-map-'></text>
+        <text>地址: {{scene_info.location}}</text>
+      </view>
+      <view class='info__detail_item'>
+        <text class='iconfont icon-RMB'></text>
+        <text>票价(元)：{{scene_info.fee}}</text>
+      </view>
+      <view class='info__detail_item'>
+        <text class='iconfont icon-favorites'></text>
+        <text>景区评级：{{scene_info.rate}}</text>
+      </view>
+      <view class='info__detail_item'>
+        <text class='iconfont icon-time'></text>
+        <text>开放时间: </text>
+        <text wx:if='{{scene_info.open_time.length>20}}' class="changed_open_time">{{scene_info.open_time}}</text>
+        <text wx:else>{{scene_info.open_time}}</text>
+      </view>
+    </view>
+  </view>
+  <split id="split" title='景点详情'></split>
+  <view class='attraction_detail'>
+    <view class='attraction_nav'>
+      <block wx:for='{{nav_items}}' wx:key='{{index}}'>
+        <view class='attraction_nav_item {{current_nav_item_id===index ? "active" : ""}}' data-index='{{index}}' bindtap='navToAttractionInfo'>
+          <text class='iconfont {{item.item_class}}'></text>
+          <text class='nav_item_text'>{{item.item_name}}</text>
+        </view>
+      </block>
+    </view>
+    <view class='attraction_info'>
+      <view class='attraction_summary' hidden='{{current_nav_item_id!==0}}'>
+        <view>
+          <text>{{scene_info.summary}}</text>
+        </view>
+      </view>      
+      <view class='restaurant_recommend' hidden='{{current_nav_item_id!==1}}'>
+        <block wx:if="{{scene_info.restaurant_recommend.length>0}}" wx:for="{{scene_info.restaurant_recommend}}" wx:key="{{index}}">
+          <view class="restaurant_recommend_item">
+            <view class='title' bindtap='to_map_location' data-latitude='{{item.map_location.latitude}}' data-longitude='{{item.map_location.longitude}}'>
+              <text>{{item.name}}</text>
+              <text class='iconfont icon-position'></text>
+            </view>
+            <image wx:if='{{item.img_url}}' src='{{item.img_url}}' mode='aspectFill' class="food_recommend"></image>
+          </view>  
+        </block>
+        <block wx:if="{{scene_info.restaurant_recommend.length===0}}"><text>暂无推荐</text></block>
+      </view>
+      <view class='attraction_transportation' hidden='{{current_nav_item_id!==2}}'>
+        <!-- <text class='iconfont icon-arrow-double-right'></text> -->
+          <text wx:for='{{scene_transit}}' wx:key='{{index}}' class='transit_item'>{{item}}</text>
+      </view>
+      <view class='attraction_main_site' hidden='{{current_nav_item_id!==3}}'>
+        <view wx:for='{{scene_info.main_sites}}' wx:key="{{item.name}}" class='main_site_item'>
+          <text class='title'>{{item.name}}</text>
+          <image wx:if='{{item.img_url}}' src='{{item.img_url}}' mode='widthFix' class='item_image'></image>
+          <text class='content'>{{item.introduction}}</text>
+        </view>
+      </view>
+      <view class='attrction_location' hidden='{{current_nav_item_id!==4}}'>
+        <map class='wx_map' longitude='{{scene_info.map_location.longitude}}' latitude='{{scene_info.map_location.latitude}}'></map>
+      </view>    
+    </view>
+  
+  </view>
+
+</view>

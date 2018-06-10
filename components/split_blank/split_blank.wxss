@@ -1,0 +1,17 @@
+/* components/split_blank/split_blank.wxss */
+.blank_split {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 750rpx;
+  height: 20rpx;
+  background-color: #ccc;
+}
+
+.blank_split::after {
+  display: block;
+  content: '';
+  clear: both;
+}

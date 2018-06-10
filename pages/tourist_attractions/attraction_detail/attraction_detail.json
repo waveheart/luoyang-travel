@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#4e7485",
+  "usingComponents": {
+    "split": "/components/split/split"
+  }
+}

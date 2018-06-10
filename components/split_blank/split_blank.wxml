@@ -1,0 +1,2 @@
+<!--components/split_blank/split_blank.wxml-->
+<view class='blank_split'></view>

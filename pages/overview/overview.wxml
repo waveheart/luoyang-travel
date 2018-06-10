@@ -1,0 +1,48 @@
+<view class='map_wrapper'>
+  <map id="map" longitude="{{scroll_data[currentIndex].map_location.longitude}}" latitude="{{scroll_data[currentIndex].map_location.latitude}}" scale="{{scale}}" markers="{{markers}}" bindmarkertap="markertap" show-location style="width: 100%; height: 100%;"></map>
+</view>
+<!-- <map id="map" longitude="{{scroll_data[currentIndex].map_location.longitude}}" latitude="{{scroll_data[currentIndex].map_location.latitude}}" scale="16" markers="{{markers}}" bindmarkertap="markertap" show-location style="width: 100%; height: 300px;"></map> -->
+<view class="selection_place">
+  <view class="selection_title" bindtap='test'>
+    <text class='iconfont icon-reverse-sorting'></text>
+  </view>
+  <!-- 图片循环部分 -->
+  <scroll-view class="scroll-view" scroll-x style="width: 100%" bindscroll="scroll" scroll-into-view="{{toView}}" bindscrolltoupper="upper" bindscrolltolower="lower" upper-threshold="8" lower-threshold="8">
+    <!-- 这里是为了循环播放添加的两个起始View -->
+    <view id="start_blank" class="scroll-view-item blank"  data-name='{{scroll_data[scroll_data.length-2].name}}' bindtap='navTo'>
+      <view class='img_wrapper'>
+        <image src='{{scroll_data[scroll_data.length-2].img_url}}' class='scroll_img' mode='aspectFill'></image>
+      </view>
+      <text class='name'>{{scroll_data[scroll_data.length-2].chs_name}}</text>
+    </view>
+    
+    <view id="start_blank1" class="scroll-view-item blank {{currentIndex === -1 ? 'active' : ''}}"   data-name='{{scroll_data[scroll_data.length-1].name}}' bindtap='navTo'>
+      <view class='img_wrapper'>
+        <image src='{{scroll_data[scroll_data.length-1].img_url}}' class='scroll_img' mode='aspectFill'></image>
+      </view>
+      <text class='name'>{{scroll_data[scroll_data.length-1].chs_name}}</text>
+    </view>
+
+    <!-- 这里是真正的循环部分 -->
+    <view wx:for="{{scroll_data}}" wx:key="{{index}}" id="{{'item'+index}}" class="scroll-view-item {{currentIndex === index ? 'active' : ''}}" data-name='{{item.name}}' bindtap='navTo'>
+      <view class='img_wrapper'>
+        <image src='{{item.img_url}}' class='scroll_img' mode='aspectFill'></image>
+      </view>
+      <text class='name'>{{item.chs_name}}</text>
+    </view> 
+    <!-- 这里是为了循环播放添加的两个结尾View -->
+    <view id="end_blank" class="scroll-view-item blank {{currentIndex === scroll_data.length ? 'active' : ''}}"   data-name='{{scroll_data[0].name}}' bindtap='navTo'>
+      <view class='img_wrapper'>
+        <image src='{{scroll_data[0].img_url}}' class='scroll_img' mode='aspectFill'></image>
+      </view>
+      <text class='name'>{{scroll_data[0].chs_name}}</text>
+    </view>
+
+    <view id="end_blank1" class="scroll-view-item blank"   data-name='{{scroll_data[1].name}}' bindtap='navTo'>
+      <view class='img_wrapper'>
+        <image src='{{scroll_data[1].img_url}}' class='scroll_img' mode='aspectFill'></image>
+      </view>
+      <text class='name'>{{scroll_data[1].chs_name}}</text>
+    </view>
+  </scroll-view>
+</view>

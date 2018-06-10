@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class='page_wrapper'>
+  <view class="index_wrapper">
+    <image class='page_link' src='http://olzo3tk5t.bkt.clouddn.com/C_44.png' mode='widthFix' data-name='arty-path' bindtap='navTo'></image>
+    <image class='page_link' src='http://olzo3tk5t.bkt.clouddn.com/C_135.png' mode='widthFix' data-name='overview' bindtap='navTo'></image>
+    <!-- <image class='page_link' src='http://olzo3tk5t.bkt.clouddn.com/C_172.png' mode='widthFix' data-name='anti_cheat' bindtap='navTo'></image> -->
+    <image class='page_link' src='http://olzo3tk5t.bkt.clouddn.com/C_122.png' mode='widthFix' data-name='countryside_route' bindtap='navTo'></image>
+  </view>
+</view>
+<view class='bg_img'>
+  <image src='http://olzo3tk5t.bkt.clouddn.com/luoyang02.jpg' mode='aspectFill'></image>
+</view>
+<view>
+  <image src='http://olzo3tk5t.bkt.clouddn.com/C_69.png' class='luoyang_title' mode='widthFix'></image>
+</view>
+
+

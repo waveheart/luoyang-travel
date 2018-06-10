@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "景点概述",
+  "navigationBarBackgroundColor": "#4e7485",
+  "usingComponents": {
+    "split-blank": "/components/split_blank/split_blank",
+    "split": "/components/split/split"
+  }
+}

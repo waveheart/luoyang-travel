@@ -1,0 +1,17 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/arty-path/arty-path",
+    "pages/countryside_route/countryside_route",
+    
+    "pages/overview/overview",
+    "pages/tourist_attractions/attraction_detail/attraction_detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e0e9ed",
+    "navigationStyle": "default",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -1,0 +1,99 @@
+/* pages/scrollview/scrollview.wxss */
+@import "/style/icon.wxss";
+
+page {
+  height: 98%;
+  width: 98%;
+  margin: 1%;
+  padding: 30rpx;
+  border:5px solid; 
+  border-image-source:url(http://olzo3tk5t.bkt.clouddn.com/border02.png);
+  border-image-slice:60;
+  border-image-width:6; 
+  border-image-repeat: repeat;
+  box-sizing: border-box;
+}
+
+.map_wrapper {
+  height: 73%;
+  /* padding: 30rpx; */
+  margin-bottom: 2%;
+  padding: 28rpx 0 42rpx;
+  box-sizing: border-box;
+  
+  /* border:5px solid; 
+  border-image-source:url(http://olzo3tk5t.bkt.clouddn.com/border02.png);
+  border-image-slice:60;
+  border-image-width:6; 
+  border-image-repeat: repeat; */
+}
+
+.selection_place {
+  height: 25%;
+  border-top: 1rpx dashed #523237;
+  /* background-color: #ccc; */
+  /* padding: 0 30rpx;
+  border:1px solid; 
+  border-image-source:url(http://olzo3tk5t.bkt.clouddn.com/border03.png);
+  border-image-slice:80;
+  border-image-width:12; 
+  border-image-repeat: repeat; */
+}
+
+.selection_title {
+  padding-top: 14rpx; 
+  text-align: center;
+}
+
+.selection_title .icon-reverse-sorting {
+  color: #c59300;
+  font-size: 42rpx;
+}
+
+.scroll-view {
+  display: flex;
+  height: 200rpx;
+  flex-direction: row;
+  white-space: nowrap; 
+}
+
+.scroll-view-item {
+  display: inline-block;
+  text-align: center;
+  width: 200rpx;
+  margin-right: 32rpx;
+}
+
+.scroll-view-item .img_wrapper {
+  width: 100%;
+  height: 140rpx;
+  overflow: hidden;
+}
+
+.scroll-view-item.active .name {
+  color: #b59505;
+}
+
+.scroll-view-item .scroll_img {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-view-item .name {
+  position: absolute;
+  display: inline-block;
+  width: 220rpx;
+  margin-left: -110rpx;
+  margin-top: 0rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  
+}
+
+.section__title {
+  text-align: center;
+}
+.scroll-view-item:last-child {
+  margin-right: 0;
+}

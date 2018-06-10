@@ -1,0 +1,6 @@
+<!--pages/components/split/split.wxml-->
+ <view class='split-wrapper'>
+  <view class='split-left'></view>
+  <text class='split-text' bindtap='_toggleShow'>{{title}}</text>
+  <view class='split-right'></view>
+</view>

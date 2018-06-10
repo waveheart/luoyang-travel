@@ -1,0 +1,145 @@
+/* pages/tourist_attractions/longmen/longmen.wxss */
+@import "/style/icon.wxss";
+
+attractions_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconfont {
+ display: inline-block;
+ margin-right: 20rpx;
+}
+
+.attractions_title {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 36rpx;
+}
+
+.icon-map- {
+  color: #64a8f9;
+}
+
+.swipper {
+  width: 100%;
+  height: 450rpx;
+}
+.swipper image {
+  width: 100%;
+}
+
+.info__detail {
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.info__detail_item {
+  min-height: 80rpx;
+  width: 100%;
+  line-height: 80rpx;
+  border-bottom: 1rpx dashed #ccc;
+}
+
+.info__detail_item:last-child {
+  border-bottom: none;
+}
+
+.info__detail_item .changed_open_time {
+  display: block;
+  padding-left: 50rpx;
+}
+
+.attraction_detail {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.attraction_nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.attraction_nav_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attraction_nav_item .iconfont {
+  display: flex;
+  color: white;
+  font-size: 56rpx;
+  align-self: center;
+  margin-left: 14rpx;
+  margin-bottom: 14rpx;
+  background-color: #64a8f9;
+  border-radius: 50%;
+}
+
+.attraction_nav_item.active .iconfont {
+  background-color: darkblue;
+}
+
+.attraction_info {
+  margin: 40rpx 0;
+  background-color: #ddd;
+  min-height: 300rpx;
+}
+
+.attraction_info text{
+  color: #796301;
+}
+
+.restaurant_recommend {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant_recommend .icon-position {
+  color: #64a8f9;
+  display: inline-block;
+  margin-left: 28rpx;
+  padding: 10rpx;
+}
+
+.restaurant_recommend .food_recommend {
+  width: 100%;
+}
+
+.attraction_transportation {
+  display: flex;
+  flex-direction: column;
+}
+
+.main_site_item {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx 0;
+  border-bottom: 1rpx dashed #ccc;
+}
+
+.main_site_item:last-child {
+  border: none;
+}
+
+.main_site_item .item_image {
+  align-self: center;
+  width: 100%;
+  margin: 30rpx 0;
+}
+
+
+.wx_map {
+  width: 100%;
+  height: 600rpx;
+}
